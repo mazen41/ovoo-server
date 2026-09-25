@@ -1,0 +1,231 @@
+/* admin rtl css start here  */
+
+
+/* header css start here */
+.dashboard .dashboard__sidebar-logo {
+    margin-left: unset !important;
+    margin-right: 0px !important;
+
+}
+
+.dashboard .dashboard__sidebar .sidebar-menu__close {
+    right: unset !important;
+    left: 5px !important;
+}
+
+.dashboard .header-dropdown .dropdown-menu {
+    right: unset !important;
+    left: -10px !important;
+}
+
+.search-instruction {
+    right: unset !important;
+    left: 10px;
+}
+
+.header-search .search-card__list {
+    padding-left: 2rem;
+    padding-right: 0px !important;
+
+}
+
+.dashboard-quick-link .quick-link-item {
+    border-right: unset !important;
+    border-left: 1px solid hsl(var(--border-color));
+}
+
+@media screen and (min-width: 425px) {
+    .dashboard-quick-link .quick-link-item:nth-child(3n) {
+        border-right-width: 0px !important;
+        border-left: none !important;
+    }
+}
+
+
+.dashboard .dashboard__sidebar-inner .dashboard-nav__items.has-dropdown>.dashboard-nav__link::after {
+    right: unset !important;
+    left: 5px;
+}
+
+.user-detail__contact .item span:last-child {
+    padding-left: unset !important;
+    padding-right: 5px;
+}
+
+.dashboard .dashboard__sidebar-inner .dashboard-nav__items.has-dropdown>.dashboard-nav {
+    padding-left: unset !important;
+    padding-right: 20px;
+}
+
+.user-detail__verification {
+    padding-left: unset !important;
+    padding-right: 30px;
+}
+
+.dashboard__area {
+    margin-left: unset !important;
+    margin-right: var(--sidebar);
+}
+
+
+.dashboard .dashboard__sidebar {
+    right: 0 !important;
+    left: unset !important;
+}
+
+
+.dashboard .dashboard__sidebar.show-sidebar {
+    left: unset !important;
+    right: 0 !important;
+}
+
+@media screen and (max-width: 1199px) {
+    .dashboard .dashboard__sidebar {
+        left: unset !important;
+        right: -100% !important;
+    }
+}
+
+@media screen and (max-width: 1199px) {
+    .dashboard__area {
+        width: 100%;
+        padding-inline: 0;
+        margin-left: unset !important;
+        margin-right: 0 !important;
+    }
+}
+
+
+.verification-switch__item:not(:last-child):before {
+    right: unset !important;
+    left: -15px;
+}
+
+.widget-two::before {
+    left: unset !important;
+    right: 0px !important;
+}
+
+.widget-four-shape:before,
+.widget-four-shape:after {
+    right: unset !important;
+    left: -72px;
+}
+
+.widget-inner {
+    padding-right: 24px !important;
+    padding-left: var(--padding-gap, 24px) !important;
+}
+
+@media (max-width: 1399px) {
+
+    .widget-two,
+    .widget-one {
+        padding: 24px;
+    }
+}
+
+.widget-four-shape:after {
+    right: unset !important;
+    left: -53px;
+}
+
+.custom--dropdown {
+    margin-left: unset !important;
+    margin-right: 20px;
+
+}
+
+.dropdown-list>.dropdown-list__item .text,
+.custom--dropdown>.custom--dropdown__selected .text {
+    padding-left: unset !important;
+    padding-right: 4px;
+}
+
+.custom--dropdown>.dropdown-list {
+    right: unset !important;
+    left: 0;
+}
+
+/* header css end here */
+
+/* slider code start start */
+.slick-slider .slick-track {
+    display: flex !important;
+}
+
+.slick-slider .slick-slide {
+    height: auto !important;
+    float: none !important;
+}
+
+
+/* login css start here   */
+
+.form--check .form-check-label {
+    padding-right: 12px;
+    padding-left: unset;
+}
+
+.password-show-hide {
+    right: unset !important;
+    left: 20px;
+}
+
+
+
+/* table design change  */
+.table-layout .table-export .table-export__list {
+    padding-right: 0px !important;
+}
+
+.table thead tr th:first-child {
+    text-align: right !important;
+}
+
+.table thead tr th:last-child {
+    text-align: left !important;
+}
+
+
+[data-theme=dark] .table> :not(caption)>*>* {
+    background-color: hsl(var(--light));
+}
+
+.table tbody tr td:last-child {
+    text-align: left !important;
+}
+
+.table tbody tr td:first-child {
+    text-align: right !important;
+}
+
+/* dashbaord gateways design  */
+.gateway-status {
+    right: unset !important;
+    left: 16px !important;
+}
+
+.extention-status {
+    right: unset !important;
+    left: 16px !important;
+}
+
+/* alert design start here  */
+.alert__content {
+    padding-left: unset !important;
+    padding-right: 16px;
+}
+
+.form-field .form-field__item:last-child {
+    text-align: left;
+    margin-left: unset !important;
+    margin-right: auto;
+}
+
+.template-card__icon {
+    margin-right: unset !important;
+    margin-left: 16px;
+}
+
+/* admin rtl css end here  */

@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap');
+
+.login-area {
+    width: 480px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background-color: #1E157D;
+    padding: 40px;
+}
+
+.verification-code {
+    display: flex;
+    position: relative;
+    z-index: 1;
+    height: 50px;
+    width: 100%;
+}
+
+
+
+
+.verification-code input {
+    position: absolute;
+    height: 50px;
+    width: calc(100% + 80px);
+    left: 0;
+    background: transparent;
+    border: none;
+    font-size: 25px !important;
+    font-weight: 800;
+    letter-spacing: 60px;
+    text-indent: 1px;
+    border: none;
+    z-index: 1;
+    padding-left: 25px;
+    font-family: 'Courier Prime', monospace;
+    border-color: transparent !important;
+}
+
+.verification-code input:focus {
+    outline: none;
+    cursor: pointer;
+    box-shadow: none;
+    border-color: transparent !important;
+}
+
+.boxes {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    z-index: -1;
+}
+
+.verification-code span {
+    height: 50px;
+    width: calc((100% / 6) - 10px);
+    background: transparent;
+    border: 1px solid hsl(var(--primary));
+    text-align: center;
+    line-height: 50px;
+    color: hsl(var(--primary));
+    border-radius: 3px;
+}
+
+
+
+.login-area::after {
+    z-index: -1;
+}
+
+
+.verification-text {
+    font-size: 1.2rem;
+}
+
+@media screen and (max-width:991px) {
+    .verification-code input {
+        letter-spacing: 67px;
+    }
+}
+
+@media screen and (max-width:690px) {
+    .verification-code input {
+        letter-spacing: 47px;
+        max-width: fit-content;
+        padding-left: 17px;
+    }
+}
+
+@media screen and (max-width:575px) {
+    .verification-code input {
+        letter-spacing: 49px;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .verification-code input {
+        letter-spacing: 31px;
+        padding-left: 12px;
+    }
+
+    .verification-code span {
+        width: calc((100% / 6) - 5px);
+    }
+}

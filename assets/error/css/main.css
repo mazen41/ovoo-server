@@ -1,0 +1,405 @@
+/* ========================= Css Variables Start ======================== */
+
+:root {
+    /* Font Family */
+    --heading-font: "Be Vietnam Pro", sans-serif;
+    --body-font: "Montserrat", sans-serif;
+    /*========================= Css Variables Start===========================*/
+
+    --white: 0 0% 100%;
+    --black: 0 0% 0%;
+    --light: 204 26% 96%;
+    --dark: 209 18% 27%;
+    --body-color: 255 11% 28%;
+    --title-color: 240 2% 20%;
+    --border-color: 0 0% 95%;
+    --bg-color: 210 14% 97%;
+    --sidebar-active: 220 23% 42%;
+    --footer-bg-default: 220 23% 95%;
+    --heading-color: var(--secondary);
+
+    /* ============================== Bootstrap Modifier Start ============================== */
+    --primary-h: 252;
+    --primary-s: 79%;
+    --primary-l: 55%;
+    --primary: var(--primary-h) var(--primary-s) var(--primary-l);
+    --primary-dark: var(--primary-h) var(--primary-s) calc(var(--primary-l) - var(--primary-l) * 0.2);
+    --primary-light: var(--primary-h) calc(var(--primary-s)) calc(var(--primary-l) + (100% - var(--primary-l)) * 0.2);
+    --secondary-h: 229;
+    --secondary-s: 7%;
+    --secondary-l: 53%;
+    --secondary: var(--secondary-h) var(--secondary-s) var(--secondary-l);
+    --secondary-dark: var(--secondary-h) var(--secondary-s) calc(var(--secondary-l) - var(--secondary-l) * 0.2);
+    --secondary-light: var(--secondary-h) calc(var(--secondary-s)) calc(var(--secondary-l) + (100% - var(--secondary-l)) * 0.2);
+    --success-h: 142;
+    --success-s: 76%;
+    --success-l: 45%;
+    --success: var(--success-h) var(--success-s) var(--success-l);
+    --success-dark: var(--success-h) var(--success-s) calc(var(--success-l) - var(--success-l) * 0.2);
+    --success-light: var(--success-h) calc(var(--success-s)) calc(var(--success-l) + (100% - var(--success-l)) * 0.2);
+    --danger-h: 0;
+    --danger-s: 82%;
+    --danger-l: 57%;
+    --danger: var(--danger-h) var(--danger-s) var(--danger-l);
+    --danger-dark: var(--danger-h) var(--danger-s) calc(var(--danger-l) - var(--danger-l) * 0.2);
+    --danger-light: var(--danger-h) calc(var(--danger-s)) calc(var(--danger-l) + (100% - var(--danger-l)) * 0.2);
+    --warning-h: 25;
+    --warning-s: 98%;
+    --warning-l: 53%;
+    --warning: var(--warning-h) var(--warning-s) var(--warning-l);
+    --warning-dark: var(--warning-h) var(--warning-s) calc(var(--warning-l) - var(--warning-l) * 0.2);
+    --warning-light: var(--warning-h) calc(var(--warning-s)) calc(var(--warning-l) + (100% - var(--warning-l)) * 0.2);
+    --info-h: 189;
+    --info-s: 94%;
+    --info-l: 38%;
+    --info: var(--info-h) var(--info-s) var(--info-l);
+    --info-dark: var(--info-h) var(--info-s) calc(var(--info-l) - var(--info-l) * 0.2);
+    --info-light: var(--info-h) calc(var(--info-s)) calc(var(--info-l) + (100% - var(--info-l)) * 0.2);
+    /* ============================== Bootstrap Modifier End ============================== */
+    /* ======================  Other Variables Start  ======================*/
+    --dashboard-boxshadow: 0 0px 12px 4px hsl(var(--black)/0.05);
+    /* ======================  Other Variables End  ======================*/
+}
+
+[data-theme=dark] {
+    --white: 0 0% 0%;
+    --black: 0 0% 100%;
+    --light: 229 24% 23%;
+    --hover: 233 17% 29%;
+    --dark: 204 26% 96%;
+    --body-color: 243 15% 71%;
+    --title-color: 245 30% 85%;
+    --border-color: 231 16% 32%;
+    --bg-color: 230 24% 19%;
+    --card-bg-color: 231 22% 24%;
+    --sidebar-active: 0 0% 92%;
+    /* ======================  Other Variables Start  ======================*/
+    --dashboard-boxshadow: 0 .125rem .5rem 0 hsl(var(--white)/0.15);
+    /* ======================  Other Variables End  ======================*/
+}
+
+
+/* ========================= Css Variables End =========================== */
+/* ======================  Global Style Start  ======================*/
+* {
+  
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+::-moz-selection {
+    color: hsl(var(--white));
+    background: hsl(var(--primary-dark));
+}
+
+::selection {
+    color: hsl(var(--white));
+    background: hsl(var(--primary-dark));
+}
+
+[data-theme=dark] ::-moz-selection {
+    color: hsl(var(--black));
+}
+
+[data-theme=dark] ::selection {
+    color: hsl(var(--black));
+}
+
+[data-theme=light] {
+    color-scheme: light;
+}
+
+[data-theme=dark] {
+    color-scheme: dark;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    font-size: 0.875rem;
+}
+
+select {
+    cursor: pointer;
+}
+
+button {
+    border: 0;
+    background-color: transparent;
+}
+
+button:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+
+
+
+.flex-center {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.btn {
+    --btn-color: hsl(var(--dark));
+    border-radius: 5px;
+    position: relative;
+    padding: 6px 14px;
+    font-size: .875rem;
+    position: relative;
+    font-weight: 500;
+    z-index: 1;
+    color: var(--btn-color) !important;
+}
+
+.btn.btn-large {
+    padding: 11px 29px;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.btn:hover,
+.btn:focus,
+.btn:focus-visible {
+    box-shadow: none !important;
+}
+
+.btn:active {
+    top: 1px;
+}
+
+.btn--lg {
+    padding: 10px 32px;
+    font-size: 1.1rem;
+}
+
+@media screen and (max-width: 991px) {
+    .btn--lg {
+        padding: 12px 30px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .btn--lg {
+        padding: 10px 25px;
+    }
+}
+
+
+.btn--icon {
+    font-size: inherit;
+    padding: 0;
+    line-height: 1;
+}
+
+.btn--icon:has(.ti) {
+    font-size: 1.25rem;
+}
+
+.btn:has(.btn--icon) {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: center;
+    width: fit-content;
+}
+
+.btn-outline--primary {
+    background-color: transparent !important;
+    border: 1px solid hsl(var(--primary)) !important;
+    color: hsl(var(--primary)) !important;
+    position: relative;
+    transition: 0.2s linear;
+    z-index: 1;
+}
+
+.btn-outline--primary:active {
+    color: hsl(var(--primary)) !important;
+    border-color: hsl(var(--primary)) !important;
+}
+
+.btn-outline--primary::before,
+.btn-outline--primary::after {
+    position: absolute;
+    content: "";
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: calc(100% + 2px);
+    height: calc(100% + 2px);
+    background: hsl(var(--primary)/0.05);
+    border-radius: inherit !important;
+    z-index: -1;
+    transition: 0.2s linear;
+    visibility: hidden;
+    opacity: 0;
+}
+
+[data-theme=dark] .btn-outline--primary::before,
+[data-theme=dark] .btn-outline--primary::after {
+    background: hsl(var(--primary)/0.08);
+}
+
+.btn-outline--primary:hover::before,
+.btn-outline--primary:hover::after,
+.btn-outline--primary:focus::before,
+.btn-outline--primary:focus::after,
+.btn-outline--primary:focus-visible::before,
+.btn-outline--primary:focus-visible::after {
+    visibility: visible;
+    opacity: 1;
+}
+
+
+/* Error Page Design Start */
+.error-content {
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+}
+[data-theme=dark]  .error-content{
+    background-color: #25293C;
+}
+
+.error-content .error-icon-placeholder {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    overflow: hidden;
+    height: 750px;
+    width: 600px;
+
+}
+
+.error-content .error-icon-placeholder .error-icon {
+    --svg-color: #000;
+    position: absolute;
+    left: -56px;
+    top: 240px;
+    transform: rotate(30deg);
+    width: 100%;
+    height: 100%;
+    
+    svg {
+        width: auto;
+        height: 100%;
+    }
+}
+[data-theme=dark]  .error-content .error-icon-placeholder .error-icon {
+    --svg-color: #fff;
+    
+}
+
+@media screen and (width < 1800px) {
+    .error-content .error-icon-placeholder {
+        height: 600px;
+    }
+}
+
+@media screen and (width <=1450px) {
+    .error-content .error-icon-placeholder {
+        height: 500px;
+    }
+}
+
+@media screen and (width <=1199px) {
+    .error-content .error-icon-placeholder {
+        height: 450px;
+    }
+}
+
+@media screen and (width <=991px) {
+    .error-content .error-icon-placeholder {
+        width: 100%;
+        height: 400px;
+    }
+}
+
+@media screen and (width <=575px) {
+    .error-content .error-icon-placeholder {
+        width: 100%;
+        height: 300px;
+    }
+
+    .error-content .error-icon-placeholder .error-icon {
+        top: 140px;
+    }
+}
+
+
+.error-content__text {
+    font-size: clamp(8.2rem, 1.4236rem + 24.4444vw, 22.8125rem);
+    font-weight: 900;
+    font-family: var(--heading-font);
+    text-align: center;
+    -webkit-text-stroke-width: 3.5px;
+    color: transparent;
+    -webkit-text-stroke-color: hsl(var(--secondary)/0.5);
+    text-shadow: -8px -8px 0px hsl(var(--secondary)/0.24);
+    line-height: 0.9;
+
+}
+[data-theme=dark]  .error-content__text{
+    --secondary:0 0% 100%;
+}
+
+
+.error-content .error-content__footer {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.error-content__message {
+    color: hsl(var(--secondary));
+    margin-bottom: 20px;
+    max-width: clamp(18.75rem, 2.0833rem + 53.3333vw, 48.75rem);
+}
+
+.error-content__message .title {
+    display: block;
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+[data-theme=dark] .error-content__message .title {
+    color: hsl(var(--black)/0.8);
+}
+[data-theme=dark] .error-content__message .text {
+    color: hsl(var(--black)/0.6);
+}
+
+
+.error-content__message .text {
+    display: block;
+    font-size: 1rem;
+}
+
+@media screen and (width <=991px) {
+    .error-content__message {
+        margin-bottom: 15px;
+    }
+
+    .error-content__message .title {
+        font-size: 1rem;
+    }
+
+    .error-content__message .text {
+        font-size: 0.875rem;
+    }
+}
+
+.error-btn {
+    padding: 14px 26px;
+    margin-inline: auto;
+}
+
+@media screen and (width <=991px) {
+    .error-btn {
+        padding: 10px 20px;
+    }
+}

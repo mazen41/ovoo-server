@@ -1,0 +1,11 @@
+{
+  "resources/js/flow_builder/app.jsx": {
+    "file": "assets/app-8rWvbwnN.js",
+    "name": "app",
+    "src": "resources/js/flow_builder/app.jsx",
+    "isEntry": true,
+    "css": [
+      "assets/app-B5DZHykP.css"
+    ]
+  }
+}

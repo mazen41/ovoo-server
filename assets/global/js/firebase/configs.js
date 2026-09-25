@@ -1,0 +1,1 @@
+var firebaseConfig = {"apiKey":"AIzaSyAzxEifokVXzWKlXlhjKb8XTl6GuwuI3Qo","authDomain":"ovowpp-96407.firebaseapp.com","projectId":"ovowpp-96407","storageBucket":"ovowpp-96407.firebasestorage.app","messagingSenderId":"629217347779","appId":"1:629217347779:web:99bb785567d2f31a25ba76","measurementId":"G-4C4KZ7XJNP"}
