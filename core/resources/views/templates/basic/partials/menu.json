@@ -1,0 +1,404 @@
+{
+    "main": [
+        {
+            "title": "My Dashboard",
+            "icon": "fa-solid fa-border-all",
+            "route_name": "user.home",
+            "permission": [
+                "view dashboard"
+            ],
+            "tooltip": "Dashboard"
+        }
+    ],
+    "MARKETING TOOLS": [
+        {
+            "title": "Manage Contacts",
+            "icon": "fa-regular fa-id-card",
+            "route_name": "user.contact.list",
+            "tooltip": "Contacts",
+            "permission": [
+                "view contact",
+                "view contact list",
+                "view contact tag"
+            ],
+            "submenu": [
+                {
+                    "title": "Manage Contacts",
+                    "route_name": "user.contact.list",
+                    "menu_active": "user.contact.*",
+                    "permission": [
+                        "view contact"
+                    ]
+                },
+                {
+                    "title": "Manage Contact Tag",
+                    "route_name": "user.contacttag.list",
+                    "menu_active": "user.contacttag.*",
+                    "permission": [
+                        "view contact tag"
+                    ]
+                },
+                {
+                    "title": "Manage Contact List",
+                    "route_name": "user.contactlist.list",
+                    "menu_active": "user.contactlist.*",
+                    "permission": [
+                        "view contact list"
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Manage Templates",
+            "icon": "fa-solid fa-envelope-square",
+            "route_name": "user.template.index",
+            "menu_active": "user.template.*",
+            "tooltip": "Templates",
+            "permission": [
+                "view template",
+                "add template",
+                "delete template"
+            ],
+            "submenu": [
+                {
+                    "title": "New Template",
+                    "route_name": "user.template.create",
+                    "menu_active": "user.template.create"
+                },
+                {
+                    "title": "Carousel Template",
+                    "route_name": "user.template.create.carousel",
+                    "menu_active": "user.template.create.carousel"
+                },
+                {
+                    "title": "All Template",
+                    "route_name": "user.template.index",
+                    "menu_active": "user.template.index"
+                }
+            ]
+        },
+        {
+            "title": "Manage Campaigns",
+            "icon": "fa-solid fa-volume-high",
+            "route_name": "user.campaign.index",
+            "menu_active": "user.campaign.*",
+            "tooltip": "Campaigns",
+            "permission": [
+                "view campaign",
+                "add campaign",
+                "delete campaign"
+            ],
+            "submenu": [
+                {
+                    "title": "New Campaign",
+                    "route_name": "user.campaign.create",
+                    "menu_active": "user.campaign.create",
+                    "permission": [
+                        "add campaign"
+                    ]
+                },
+                {
+                    "title": "All Campaign",
+                    "route_name": "user.campaign.index",
+                    "menu_active": "user.campaign.index",
+                    "permission": [
+                        "view campaign"
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Manage Automation",
+            "icon": "fa-solid fa-envelope-square",
+            "route_name": "user.flow.builder.index",
+            "menu_active": [
+                "user.automation.*",
+                "user.flow.builder.*"
+            ],
+            "tooltip": "Automation",
+            "permission": [
+                "view welcome message",
+                "view flow builder"
+            ],
+            "submenu": [
+                {
+                    "title": "Welcome Message",
+                    "route_name": "user.automation.welcome.message",
+                    "menu_active": "user.automation.welcome.message",
+                    "permission": [
+                        "view welcome message"
+                    ]
+                },
+                {
+                    "title": "Flow Builder",
+                    "route_name": "user.flow.builder.index",
+                    "menu_active": "user.flow.builder.*",
+                    "permission": [
+                        "view flow builder"
+                    ]
+                },
+                {
+                    "title": "AI Assistant",
+                    "route_name": "user.automation.ai.assistant",
+                    "menu_active": "user.automation.ai.assistant"
+                }
+            ]
+        },
+        {
+            "title": "Manage ShortLink",
+            "icon": "fa-solid fa-link",
+            "route_name": "user.shortlink.index",
+            "menu_active": "user.shortlink.*",
+            "tooltip": "ShortLink",
+            "permission": [
+                "add shortlink",
+                "view shortlink"
+            ],
+            "submenu": [
+                {
+                    "title": "Create ShortLink",
+                    "route_name": "user.shortlink.create",
+                    "menu_active": "user.shortlink.create",
+                    "permission": [
+                        "add shortlink"
+                    ]
+                },
+                {
+                    "title": "Manage ShortLink",
+                    "route_name": "user.shortlink.index",
+                    "menu_active": "user.shortlink.index",
+                    "permission": [
+                        "view shortlink"
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Manage Floaters",
+            "icon": "fa-brands fa-whatsapp",
+            "route_name": "user.floater.index",
+            "menu_active": "user.floater.*",
+            "tooltip": "Floaters",
+            "permission": [
+                "add floater",
+                "view floater"
+            ],
+            "submenu": [
+                {
+                    "title": "Create Floater",
+                    "route_name": "user.floater.create",
+                    "menu_active": "user.floater.create",
+                    "permission": [
+                        "add floater"
+                    ]
+                },
+                {
+                    "title": "Manage Floater",
+                    "route_name": "user.floater.index",
+                    "menu_active": "user.floater.index",
+                    "permission": [
+                        "view floater"
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Manage CTA URL",
+            "icon": "fa-solid fa-paperclip",
+            "route_name": "user.cta-url.index",
+            "menu_active": "user.cta-url.*",
+            "tooltip": "CTA URL",
+            "permission": [
+                "add cta url",
+                "view cta url"
+            ],
+            "submenu": [
+                {
+                    "title": "Create URL",
+                    "route_name": "user.cta-url.create",
+                    "menu_active": "user.cta-url.create",
+                    "permission": [
+                        "add cta url"
+                    ]
+                },
+                {
+                    "title": "CTA URl List",
+                    "route_name": "user.cta-url.index",
+                    "menu_active": "user.cta-url.index",
+                    "permission": [
+                        "view cta url"
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Manage Interactive List",
+            "icon": "fa-solid fa-list",
+            "route_name": "user.interactive-list.index",
+            "menu_active": "user.interactive-list.*",
+            "tooltip": "Interactive List",
+            "permission": [
+                "add interactive list",
+                "view interactive list"
+            ],
+            "submenu": [
+                {
+                    "title": "Create List",
+                    "route_name": "user.interactive-list.create",
+                    "menu_active": "user.interactive-list.create",
+                    "permission": [
+                        "add interactive list"
+                    ]
+                },
+                {
+                    "title": "Interactive List",
+                    "route_name": "user.interactive-list.index",
+                    "menu_active": "user.interactive-list.index",
+                    "permission": [
+                        "view interactive list"
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "E-Commerce",
+            "icon": "fa-solid fa-cart-shopping",
+            "route_name": "user.ecommerce.woocommerce.products",
+            "menu_active": "user.ecommerce.*",
+            "tooltip": "E-Commerce",
+            "permission": [
+                "update ecommerce configuration",
+                "show ecommerce products"
+            ],
+            "is_submenu_child": true,
+            "submenu": [
+                {
+                    "title": "Woo-Commerce",
+                    "menu_active": "user.ecommerce.woocommerce.*",
+                    "has_dropdown": true,
+                    "top_tooltip": true,
+                    "tooltip": "This top tooltip is themed via CSS variables.",
+                    "submenu": [
+                        {
+                            "title": "Products",
+                            "route_name": "user.ecommerce.woocommerce.products",
+                            "menu_active": "user.ecommerce.woocommerce.products",
+                            "permission": [
+                                "show ecommerce products"
+                            ]
+                        },
+                        {
+                            "title": "Config",
+                            "route_name": "user.ecommerce.woocommerce.config",
+                            "menu_active": "user.ecommerce.woocommerce.config",
+                            "permission": [
+                                "update ecommerce configuration"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "CRM TOOLS": [
+        {
+            "title": "Manage Inbox",
+            "icon": "fas fa-sms",
+            "route_name": "user.inbox.list",
+            "menu_active": "user.inbox.*",
+            "tooltip": "Inbox",
+            "permission": [
+                "view inbox"
+            ]
+        },
+        {
+            "title": "Manage Customer",
+            "icon": "fas fa-users",
+            "route_name": "user.customer.list",
+            "menu_active": "user.customer.*",
+            "tooltip": "Customer",
+            "permission": [
+                "view customer"
+            ]
+        },
+        {
+            "title": "Manage Agent",
+            "icon": "fa-solid fa-users-gear",
+            "route_name": "user.agent.list",
+            "menu_active": "user.agent.*",
+            "tooltip": "Agent",
+            "permission": [
+                "view agent"
+            ]
+        },
+        {
+            "title": "Support Ticket",
+            "icon": "fa-solid fa-tags",
+            "route_name": "ticket.index",
+            "menu_active": "ticket.index",
+            "tooltip": "Support Ticket",
+            "permission": [
+                "view ticket"
+            ]
+        }
+    ],
+    "FINANCE": [
+        {
+            "title": "Manage Deposit",
+            "icon": "fa-solid fa-money-bill-transfer",
+            "route_name": "user.deposit.history",
+            "menu_active": "user.deposit.*",
+            "tooltip": "Deposit",
+            "is_parent_user": true
+        },
+        {
+            "title": "Manage Withdraw",
+            "icon": "fa-solid fa-wallet",
+            "route_name": "user.withdraw.history",
+            "menu_active": "user.withdraw*",
+            "tooltip": "Withdraw",
+            "is_parent_user": true
+        },
+        {
+            "title": "Transactions Logs",
+            "icon": "fa-solid fa-right-left",
+            "route_name": "user.transactions",
+            "menu_active": "user.transactions",
+            "tooltip": "Transactions",
+            "is_parent_user": true
+        },
+        {
+            "title": "Manage Referrals",
+            "icon": "fa-solid fa-share-nodes",
+            "route_name": "user.referral.index",
+            "menu_active": "user.referral.index",
+            "tooltip": "Referrals",
+            "is_parent_user": true
+        }
+    ],
+    "BILLING & PROFILE": [
+        {
+            "title": "Whatsapp Accounts",
+            "icon": "fa-solid fa-phone",
+            "route_name": "user.whatsapp.account.index",
+            "menu_active": "user.whatsapp.account.*",
+            "tooltip": "Whatsapp Accounts",
+            "is_parent_user": true
+        },
+        {
+            "title": "Subscription Info",
+            "icon": "fa-solid fa-dollar-sign",
+            "route_name": "user.subscription.index",
+            "menu_active": "user.subscription.index",
+            "tooltip": "Subscription Info",
+            "is_parent_user": true
+        },
+        {
+            "title": "Manage Profile",
+            "icon": "fas fa-user",
+            "route_name": "user.profile.setting",
+            "menu_active": "user.profile.setting",
+            "tooltip": "Profile"
+        }
+    ]
+}
