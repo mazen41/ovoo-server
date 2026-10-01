@@ -28,9 +28,9 @@ use Illuminate\Support\Facades\Schema;
 function systemDetails()
 {
     $system['name']                = 'ovowpp';
-    $system['web_version']         = '2.2';
-    $system['admin_panel_version'] = '1.0.1';
-    $system['mobile_app_version']  = '2.2';
+    $system['web_version']         = '2.5';
+    $system['admin_panel_version'] = '1.0.2';
+    $system['mobile_app_version']  = '2.4';
     $system['android_version']     = '1.0';
     $system['ios_version']         = '1.0';
     $system['flutter_version']     = '1.0';
