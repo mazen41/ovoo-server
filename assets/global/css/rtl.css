@@ -1,0 +1,368 @@
+/* Rtl support css start here */
+
+/* header css start here */
+.custom--dropdown {
+    margin-left: unset !important;
+    margin-right: 20px;
+
+}
+
+.dropdown-list>.dropdown-list__item .text,
+.custom--dropdown>.custom--dropdown__selected .text {
+    padding-left: unset !important;
+    padding-right: 4px;
+}
+
+.custom--dropdown>.dropdown-list {
+    right: unset !important;
+    left: 0;
+}
+
+.navbar-brand.logo {
+    margin-right: unset !important;
+    margin-left: 50px !important;
+}
+
+.dropdown-list>.dropdown-list__item .thumb img,
+.custom--dropdown>.custom--dropdown__selected .thumb img {
+    margin-right: 0px !important;
+    margin-left: 5px;
+}
+
+@media (min-width: 992px) {
+    .nav-menu .nav-item {
+        padding-right: unset !important;
+        padding-left: 30px;
+
+    }
+}
+
+/* header css end here */
+
+
+/* slider code start start */
+.slick-slider .slick-track {
+    display: flex !important;
+}
+
+.slick-slider .slick-slide {
+    height: auto !important;
+    float: none !important;
+    /* RTL safe */
+}
+
+.blog-slider .slick-dots {
+    left: unset !important;
+    right: 55px;
+}
+
+
+.blog-slider .slick-prev {
+    left: unset !important;
+    right: 0px;
+
+}
+
+.blog-slider .slick-next {
+    right: 166px !important;
+    left: unset !important;
+}
+
+@media screen and (max-width: 575px) {
+    .blog-slider .slick-next {
+        left: unset;
+        right: 75px;
+    }
+
+    .blog-slider .slick-prev {
+        left: unset;
+        right: 15px;
+    }
+}
+
+.blog-slider .slick-dots {
+    right: 55px;
+    left: unset;
+}
+
+/* faq rtl css here */
+
+.custom--accordion .accordion-button[aria-expanded="true"]::after,
+.custom--accordion .accordion-button[aria-expanded="false"]::after {
+
+    right: unset !important;
+    left: 24px;
+}
+
+/* Cta css here */
+.section-heading.style-left {
+    text-align: right !important;
+}
+
+/* how to work css start here  */
+
+.how-work-item__shape {
+    left: -145px;
+    right: unset !important;
+}
+
+@media screen and (max-width: 1399px) {
+    .how-work-item__shape {
+        left: -120px;
+        right: unset !important;
+    }
+}
+
+@media screen and (max-width: 1199px) {
+    .how-work-item__shape {
+        left: -90px;
+        right: unset !important;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .how-work-item__shape {
+        left: -140px;
+        right: unset !important;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .how-work-item__shape {
+        left: -110px;
+        right: unset !important;
+
+    }
+}
+
+
+
+
+/* login css start here   */
+
+.form--check .form-check-label {
+    padding-right: 12px;
+    padding-left: unset;
+}
+
+.password-show-hide {
+    right: unset !important;
+    left: 20px;
+}
+
+/* footer css here */
+
+.footer-contact-menu__item-content {
+    padding-left: unset !important;
+    padding-right: 15px;
+}
+
+.btn .btn-icon {
+    margin-right: unset !important;
+    margin-left: 5px !important;
+
+}
+
+/* user dashboard css start here   */
+
+
+.dashboard__right {
+    padding-left: unset !important;
+    padding-right: 320px;
+}
+
+@media screen and (max-width: 991px) {
+    .dashboard__right {
+        width: 100%;
+        padding-left: unset !important;
+        padding-right: 0 !important;
+    }
+}
+
+.dashboard .sidebar-menu.show-sidebar {
+    transform: translateX(0) !important;
+}
+
+
+.dashboard .sidebar-menu {
+    left: unset !important;
+    right: 0;
+
+}
+
+.dashboard .sidebar-menu__close {
+    right: unset !important;
+    left: 16px !important;
+}
+
+@media screen and (max-width: 991px) {
+    .dashboard .sidebar-menu {
+        transform: translateX(100%) !important;
+    }
+}
+
+.dashboard .sidebar-menu-list__item.has-dropdown>a:after {
+    right: unset !important;
+    left: 16px;
+
+}
+
+.dashboard .sidebar-menu-list__item.has-dropdown>a:after {
+    transform: rotate(180deg);
+}
+
+.dashboard .sidebar-submenu-list__link {
+    padding-left: unset !important;
+    padding-right: 35px !important;
+}
+
+.dashboard .sidebar-submenu-list__link::before {
+    left: unset !important;
+    right: 10px;
+}
+
+.dashboard .widget-blue {
+    background: linear-gradient(to left, #e0f0ffb8, #fff) !important;
+}
+
+.dashboard .sidebar-menu-list__link .icon {
+    margin-right: unset !important;
+    margin-left: 8px !important;
+}
+
+.dashboard .table thead tr th:first-child {
+    text-align: right;
+    border-radius: 0px 6px 0px 0;
+}
+
+.dashboard .table thead tr th:last-child {
+    border-radius: 6px 0px 0 0 !important;
+    text-align: left !important;
+    border-left: 1px solid #c1c9d066 !important;
+}
+
+.dashboard .table thead tr th:not(:first-child) {
+    border-right: 0px !important;
+}
+
+.dashboard .table thead tr th {
+    border-right: 1px solid #c1c9d066 !important;
+    border-left: 0px !important;
+
+}
+
+.dashboard .table thead tr th {
+    border-left: none !important;
+}
+
+.select2+.select2-container .select2-selection__arrow {
+    right: unset !important;
+    left: 15px !important;
+}
+
+.dashboard .user-info .user-info-dropdown__link {
+    margin-right: 0 !important;
+    text-align: right !important;
+}
+
+.dashboard .user-info .user-info-dropdown__link .icon {
+    margin-right: unset !important;
+    margin-left: 8px;
+
+}
+
+.dashboard .user-info .user-info-dropdown {
+    right: unset !important;
+    left: 0px !important;
+
+}
+
+.dashboard-container .select-input .select2+.select2-container .select2-selection__rendered {
+    border-radius: 1px 8px 8px 0px !important;
+}
+
+
+.dashboard .widget-blue {
+    background: linear-gradient(to left, #e0f0ffb8, #fff) !important;
+}
+
+
+.dashboard .widget-purple {
+    background: linear-gradient(to left, #f5f0ff, #fff) !important;
+}
+
+
+.dashboard .widget-red {
+    background: linear-gradient(to left, #ffe0e082, #fff) !important;
+}
+
+
+.dashboard .widget-green {
+    background: linear-gradient(to left, #e0ffe9b8, #fff) !important;
+}
+
+
+.dashboard .widget-yellow {
+    background: linear-gradient(to left, #fffde7, #fff) !important;
+}
+
+.dashboard .widget-yellow .dashboard-widget__icon {
+    background-color: #ca8a04;
+}
+
+.dashboard .widget-orange {
+    background: linear-gradient(to left, #fff3e0, #fff) !important;
+}
+
+
+.dashboard .widget-pink {
+    background: linear-gradient(to left, #ffe4e6, #fff) !important;
+}
+
+
+.dashboard .widget-teal {
+    background: linear-gradient(to left, #e0fafa, #fff) !important;
+}
+
+
+.dashboard .widget-lime {
+    background: linear-gradient(to left, #ecfccb, #fff) !important;
+}
+
+
+.dashboard .widget-cyan {
+    background: linear-gradient(to left, #cffafe, #fff) !important;
+}
+
+
+.dashboard .widget-indigo {
+    background: linear-gradient(to left, #e0e7ff, #fff) !important;
+}
+
+.dashboard .widget-brown {
+    background: linear-gradient(to left, #efebe9, #fff) !important;
+}
+
+
+.dashboard .widget-gray {
+    background: linear-gradient(to left, #f3f4f6, #fff) !important;
+}
+
+.dashboard .widget-sky {
+    background: linear-gradient(to left, #e0f7fa, #fff) !important;
+}
+
+
+.dashboard .widget-rose {
+    background: linear-gradient(to left, #ffe4e6, #fff) !important;
+}
+
+
+.dashboard .widget-neon {
+    background: linear-gradient(to left, #e0ffe8, #fff) !important;
+}
+
+
+
+
+/* Rtl support css end here */

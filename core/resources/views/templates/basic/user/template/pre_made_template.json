@@ -1,0 +1,160 @@
+[
+    {
+        "category": "MARKETING",
+        "name": "promo_discount_offer",
+        "header": "one.jpg",
+        "body": "🎉 Unlock 25% Off Now!\nHi {{1}}, We’ve reserved a special discount just for you! Use the code LUCKY25 and get 25% off on your next order. Hurry, offer ends soon!",
+        "bodyVariableCount": 2,
+        "footer": "Thank you for being with us.",
+        "button": [
+            {
+                "type": "PHONE_NUMBER",
+                "label": "Call Now"
+            },
+            {
+                "type": "URL",
+                "label": "Visit Us"
+            }
+        ]
+    },
+    {
+        "category": "MARKETING",
+        "name": "new_arrival_announcement",
+        "header": "Image 2",
+        "body": "🆕 New Arrivals Just In!\nHey {{1}}, Check out our latest collection now available on our website. Don’t miss the trending styles!",
+        "bodyVariableCount": 2,
+        "footer": "Limited stock available.",
+        "button": [
+            {
+                "type": "URL",
+                "label": "Visit Website"
+            },
+            {
+                "type": "PHONE_NUMBER",
+                "label": "Call Now"
+            }
+        ]
+    },
+    {
+        "category": "MARKETING",
+        "name": "ebook_download_offer",
+        "header": "Image 3",
+        "body": "📚 Free Marketing eBook\nHi {{1}}, Boost your sales with our free {{2}}, “10 Proven WhatsApp Marketing Tactics.” Download now and take your business to the next level.",
+        "bodyVariableCount": 3,
+        "footer": "No strings attached.",
+        "button": [
+            {
+                "type": "URL",
+                "label": "Download Now"
+            },
+            {
+                "type": "URL",
+                "label": "Learn More"
+            }
+        ]
+    },
+    {
+        "category": "UTILITY",
+        "name": "order_confirmation",
+        "header": "Image 4",
+        "body": "🛾 Order #{{1}} Confirmed\nHello {{2}}, Your order has been confirmed successfully. You’ll receive another update when it ships. Thank you for shopping with us!",
+        "bodyVariableCount": 3,
+        "footer": "Track your order below",
+        "button": [
+            {
+                "type": "QUICK_REPLY",
+                "label": "Reply Now"
+            },
+            {
+                "type": "QUICK_REPLY",
+                "label": "Need Help?"
+            },
+            {
+                "type": "QUICK_REPLY",
+                "label": "Need Help?"
+            }
+        ]
+    },
+    {
+        "category": "UTILITY",
+        "name": "appointment_reminder",
+        "header": "Image 5",
+        "body": "⏰ Appointment Reminder\nHi {{1}}, This is a quick reminder for your appointment with {{2}} on {{3}} at {{4}}. Please reply YES to confirm.",
+        "bodyVariableCount": 5,
+        "footer": "We look forward to seeing you!",
+        "button": [
+            {
+                "type": "QUICK_REPLY",
+                "label": "View Details"
+            },
+            {
+                "type": "QUICK_REPLY",
+                "label": "Reschedule"
+            }
+        ]
+    },
+    {
+        "category": "UTILITY",
+        "name": "feedback_request",
+        "header": "Image 6",
+        "body": "📝 How Did We Do?\nHi {{1}}, Thanks for your recent purchase! We'd love to hear your thoughts. Could you take a moment to rate your experience?",
+        "bodyVariableCount": 1,
+        "footer": "Your feedback helps us improve.",
+        "button": [
+            {
+                "type": "QUICK_REPLY",
+                "label": "Leave Feedback"
+            },
+            {
+                "type": "PHONE_NUMBER",
+                "label": "Contact Us"
+            }
+        ]
+    },
+    {
+        "category": "UTILITY",
+        "name": "subscription_renewal_reminder",
+        "header": "Image 7",
+        "body": "🔔 Subscription Reminder\nHi {{1}}, your subscription is about to expire on {{2}}. Renew now to continue enjoying uninterrupted service.",
+        "bodyVariableCount": 3,
+        "footer": "Thank you for being with us.",
+        "button": [
+            {
+                "type": "PHONE_NUMBER",
+                "label": "Contact Us"
+            },
+            {
+                "type": "URL",
+                "label": "View More"
+            }
+        ]
+    },
+    {
+        "category": "AUTHENTICATION",
+        "name": "otp_verification",
+        "header": "Image 8",
+        "body": "🔐 Verify Your Identity\nYour one-time password (OTP) is {{1}}. Use this to complete your verification. Do not share this with anyone.",
+        "bodyVariableCount": 2,
+        "footer": "This code will expire in 10 minutes.",
+        "button": [
+            {
+                "type": "OTP",
+                "label": "Copy OTP"
+            }
+        ]
+    },
+    {
+        "category": "AUTHENTICATION",
+        "name": "login_alert",
+        "header": "Image 9",
+        "body": "🔔 Login Alert\nHi {{1}}, A login attempt was detected from a new device. If this was not you, please secure your account immediately.",
+        "bodyVariableCount": 2,
+        "footer": "Your security is our priority.",
+        "button": [
+            {
+                "type": "OTP",
+                "label": "Copy OTP"
+            }
+        ]
+    }
+]

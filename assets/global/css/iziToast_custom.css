@@ -1,0 +1,187 @@
+.iziToast-wrapper {
+    gap: 5px;
+}
+
+.iziToast {
+    box-shadow: 0 0 8px 2px #00000012;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 20px 45px 20px 0;
+}
+
+.iziToast>.iziToast-body {
+    position: unset;
+    padding: unset;
+    height: unset;
+    min-height: unset;
+    margin: unset;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding-left: 20px !important;
+
+}
+
+.iziToast:after {
+    box-shadow: none;
+}
+
+.iziToast>.iziToast-body .iziToast-icon {
+    position: unset;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    line-height: 1;
+    margin-top: unset;
+    width: unset;
+    height: unset;
+}
+
+.iziToast .iziToast-icon {
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.iziToast.iziToast-color-green .iziToast-icon {
+    background: #28c76f31;
+}
+
+.iziToast.iziToast-color-red .iziToast-icon {
+    background: #eb222231;
+}
+
+.iziToast.iziToast-color-blue .iziToast-icon {
+    background: #1e9ff231;
+}
+
+.iziToast.iziToast-color-orange .iziToast-icon {
+    background: #ff9f4331;
+}
+
+.iziToast>.iziToast-body .iziToast-texts {
+    margin: 0;
+    padding-right: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.iziToast>.iziToast-body .iziToast-message {
+    margin: 0;
+}
+
+
+.iziToast>.iziToast-close {
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    background: unset;
+}
+
+.iziToast>.iziToast-close::before {
+    content: "\f00d";
+}
+
+.iziToast>.iziToast-progressbar>div {
+    height: 4px;
+}
+
+.iziToast>.iziToast-close {
+    width: 50px;
+}
+
+
+
+/* Toast Design Update Start */
+[data-theme=dark] .iziToast {
+    background-color: hsl(var(--white)) !important;
+}
+
+[data-theme=dark] .iziToast-title {
+    color: hsl(var(--dark)) !important;
+}
+
+[data-theme=dark] .iziToast-close {
+    color: hsl(var(--black)) !important;
+}
+
+.iziToast>.iziToast-body {
+    gap: 10px;
+}
+
+.iziToast>.iziToast-body .iziToast-icon {
+    --size: 25px;
+    position: unset;
+    font-size: 0.875rem !important;
+    height: var(--size) !important;
+    width: var(--size) !important;
+    align-self: center;
+    overflow: hidden;
+    display: flex;
+    opacity: 1;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+    color: hsl(var(--white)) !important;
+    background-color: var(--toast-bg, hsl(var(--primary))) !important;
+}
+
+.iziToast {
+    padding-block: 12px !important;
+    border-radius: 80px !important;
+    min-height: 50px !important;
+}
+
+body:has(.banner-bg) .iziToast {
+    background: #083113 !important;
+    border: 1px solid #ffffff1a !important;
+    
+}
+
+body:has(.banner-bg) .iziToast-message, body:has(.banner-bg) .iziToast-close {
+    color: #fff !important;
+    opacity: 1 !important;
+}
+
+.iziToast-title {
+    color: var(--toast-bg, hsl(var(--primary))) !important;
+}
+
+.iziToast.iziToast-color-green {
+    --toast-bg: hsl(var(--success)) !important;
+}
+
+
+.iziToast.iziToast-color-red {
+    --toast-bg: #eb2222 !important;
+    opacity: 1 !important;
+}
+
+.iziToast.iziToast-color-blue {
+    --toast-bg: #1ea1f2 !important;
+}
+
+.iziToast.iziToast-color-orange {
+    --toast-bg: #ff9e43 !important;
+}
+
+.iziToast>.iziToast-progressbar {
+    width: 0 !important;
+}
+
+@media screen and (max-width:567px) {
+    .iziToast-wrapper-topCenter {
+        top: 10px !important;
+        left: 10px !important;
+        right: 10px !important;
+    }
+
+    .iziToast-wrapper {
+        width: calc(100% - 20px) !important;
+    }
+
+    .iziToast {
+        border-radius: 30px !important;
+    }
+}

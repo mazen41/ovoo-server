@@ -1,0 +1,34 @@
+{
+    "object": "whatsapp_business_account",
+    "entry": [
+        {
+            "id": "REPLACE_WABA_ID",
+            "changes": [
+                {
+                    "field": "smb_app_state_sync",
+                    "value": {
+                        "messaging_product": "whatsapp",
+                        "metadata": {
+                            "display_phone_number": "15550001111",
+                            "phone_number_id": "REPLACE_PHONE_NUMBER_ID"
+                        },
+                        "state_sync": [
+                            {
+                                "type": "contact",
+                                "contact": {
+                                    "full_name": "Ada Lovelace",
+                                    "first_name": "Ada",
+                                    "phone_number": "+1 555 765 4321"
+                                },
+                                "action": "add",
+                                "metadata": {
+                                    "timestamp": "1788566580"
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,35 @@
+{
+    "object": "whatsapp_business_account",
+    "entry": [
+        {
+            "id": "REPLACE_WABA_ID",
+            "changes": [
+                {
+                    "field": "smb_message_echoes",
+                    "value": {
+                        "messaging_product": "whatsapp",
+                        "metadata": {
+                            "display_phone_number": "15550001111",
+                            "phone_number_id": "REPLACE_PHONE_NUMBER_ID"
+                        },
+                        "message_echoes": [
+                            {
+                                "from": "15550001111",
+                                "to": "15557654321",
+                                "id": "wamid.COEX_STICKER_0001",
+                                "timestamp": "1788566520",
+                                "type": "sticker",
+                                "sticker": {
+                                    "id": "6543210987654321",
+                                    "mime_type": "image/webp",
+                                    "sha256": "def456",
+                                    "animated": false
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}

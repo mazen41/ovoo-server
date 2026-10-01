@@ -1,0 +1,35 @@
+{
+    "object": "whatsapp_business_account",
+    "entry": [
+        {
+            "id": "REPLACE_WABA_ID",
+            "changes": [
+                {
+                    "field": "smb_message_echoes",
+                    "value": {
+                        "messaging_product": "whatsapp",
+                        "metadata": {
+                            "display_phone_number": "15550001111",
+                            "phone_number_id": "REPLACE_PHONE_NUMBER_ID"
+                        },
+                        "message_echoes": [
+                            {
+                                "from": "15550001111",
+                                "to": "15557654321",
+                                "id": "wamid.COEX_IMAGE_0001",
+                                "timestamp": "1788566460",
+                                "type": "image",
+                                "image": {
+                                    "id": "1234567890123456",
+                                    "mime_type": "image/jpeg",
+                                    "sha256": "abc123",
+                                    "caption": "Photo taken on the handset"
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}

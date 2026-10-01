@@ -1,0 +1,1 @@
+var firebaseConfig = {"apiKey":"AIzaSyCRJ1F8MprvMJxL7N6ROB1l32mgBf6BzS4","authDomain":"wacrm-98c47.firebaseapp.com","projectId":"wacrm-98c47","storageBucket":"wacrm-98c47.firebasestorage.app","messagingSenderId":"586664419437","appId":"1:586664419437:web:c49b76d800a88317eb5f64","measurementId":"G-6QE4YQMT1L"}

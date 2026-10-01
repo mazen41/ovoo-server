@@ -1,0 +1,134 @@
+.note-editor .note-toolbar>.note-btn-group,
+.note-popover .popover-content>.note-btn-group {
+    margin-right: 10px;
+}
+
+[data-theme=dark] .note-editor.note-airframe,
+[data-theme=dark] .note-editor.note-frame {
+    border-color: hsl(var(--border-color));
+}
+
+.note-dropdown-menu {
+    width: max-content;
+}
+.note-editor.note-airframe.fullscreen,
+.note-editor.note-frame.fullscreen {
+    background-color: hsl(var(--white));
+}
+.note-modal-footer .note-btn {
+    float: right;
+    margin-top: -10px;
+    color: hsl(var(--primary)) !important;
+    background: hsl(var(--primary)/0.06);
+    border-radius: 6px !important;
+    font-weight: 500;
+}
+
+.note-modal-footer .note-btn:hover:not([disabled]) {
+    background: transparent;
+}
+
+.note-btn-group .dropdown-toggle::after {
+    display: none;
+}
+
+.note-modal-body {
+    font-family: var(--body-font);
+    padding: 20px 15px;
+    overflow: auto !important;
+}
+
+.note-modal-body kbd {
+    background-color: hsl(var(--secondary));
+}
+
+.note-modal-body span {
+    color: hsl(var(--black)/0.8);
+    font-size: 14px;
+}
+
+.note-modal-body .note-input {
+    border-radius: var(--border-radios);
+    border-color: hsl(var(--black)/0.2);
+    padding-block: 10.5px;
+}
+
+.note-modal-body .note-input[type=file] {
+    padding-block: 7.5px;
+}
+
+.note-modal-body .note-input:focus {
+    border-color: hsl(var(--primary));
+}
+
+@media screen and (max-width: 991px) {
+    .note-modal-body .note-input {
+        padding-block: 9.5px;
+    }
+
+    .note-modal-body .note-input[type=file] {
+        padding-block: 6.5px;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .note-modal-body .note-input {
+        padding-block: 8.5px;
+    }
+
+    .note-modal-body .note-input[type=file] {
+        padding-block: 6.5px;
+    }
+}
+
+
+[data-theme=dark] .note-toolbar {
+    background-color: #363b4f;
+    border-color: hsl(var(--border-color));
+}
+
+[data-theme=dark] .note-btn,
+[data-theme=dark] .note-dropdown-menu {
+    color: hsl(var(--secondary));
+    background-color: hsl(var(--light));
+    border: 1px solid hsl(var(--border-color));
+}
+
+[data-theme=dark] .note-btn:hover,
+[data-theme=dark] .note-dropdown-item:hover {
+
+    background-color: hsl(var(--secondary-dark)/0.2);
+}
+
+[data-theme=dark] .note-modal-title,
+[data-theme=dark] .note-modal-header .close,
+[data-theme=dark] a.note-dropdown-item,
+[data-theme=dark] a.note-dropdown-item:hover {
+    color: hsl(var(--secondary));
+}
+
+[data-theme=dark] .note-modal-content {
+    background-color: hsl(var(--light));
+}
+
+[data-theme=dark] .note-modal-header {
+    border-color: hsl(var(--border-color));
+}
+
+[data-theme=dark] .note-input {
+    background-color: hsl(var(--light));
+    color: hsl(var(--secondary));
+}
+
+[data-theme=dark] .note-modal-body kbd {
+    background-color: hsl(var(--secondary-dark)/0.2);
+    color: #c5c5c5;
+}
+
+[data-theme=dark] .note-frame {
+    color: hsl(var(--secondary));
+}
+
+.note-modal-content .checkbox input {
+    margin-right: 8px;
+}

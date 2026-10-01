@@ -1,0 +1,23 @@
+{
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "flow": "vite",
+        "build": "vite build"
+    },
+    "devDependencies": {
+        "@popperjs/core": "^2.11.6",
+        "axios": "^1.6.4",
+        "bootstrap": "^5.2.3",
+        "laravel-vite-plugin": "^1.0",
+        "sass": "^1.56.1",
+        "vite": "^5.0"
+    },
+    "dependencies": {
+        "@vitejs/plugin-react": "^4.7.0",
+        "react": "^19.2.0",
+        "react-dom": "^19.2.0",
+        "reactflow": "^11.11.4",
+        "uuid": "^13.0.0"
+    }
+}
