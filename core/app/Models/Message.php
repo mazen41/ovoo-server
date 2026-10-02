@@ -34,6 +34,11 @@ class Message extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function whatsappAccount()
+    {
+        return $this->belongsTo(WhatsappAccount::class);
+    }
+
     public function agent()
     {
         return $this->belongsTo(User::class, 'agent_id')

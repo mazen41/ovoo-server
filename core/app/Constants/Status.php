@@ -132,4 +132,14 @@ class Status
     // E-commerce Status
     const WOO_COMMERCE = 1;
     const SHOPIFY      = 2;
+
+    // Media sync status (messages.media_sync_status): null=n/a
+    const MEDIA_SYNC_PENDING     = 1;
+    const MEDIA_SYNC_SYNCED      = 2;
+    const MEDIA_SYNC_UNAVAILABLE = 3;
+
+    // Message origin (messages.message_origin)
+    const MESSAGE_ORIGIN_PLATFORM = 1;
+    const MESSAGE_ORIGIN_DEVICE   = 2;
+    const MESSAGE_ORIGIN_HISTORY  = 3;
 }

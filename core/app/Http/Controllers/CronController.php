@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Constants\Status;
 use App\Http\Controllers\User\PurchasePlanController;
 use App\Lib\CurlRequest;
+use App\Lib\WhatsApp\WhatsAppLib;
 use App\Models\Campaign;
 use App\Models\CampaignContact;
 use App\Models\Conversation;
@@ -419,5 +420,53 @@ class CronController extends Controller
         }
 
         CronJob::where('alias', 'update_campaign_message')->delete();
+    }
+
+    public function coexistenceMediaSync()
+    {
+        $pendingMedia = Message::where('media_sync_status', Status::MEDIA_SYNC_PENDING)
+            ->whereNotNull('media_id')
+            ->where('media_id', '!=', '')
+            ->whereHas('whatsappAccount', function ($query) {
+                $query->where('is_coexistence', Status::YES);
+            })
+            ->with('whatsappAccount')
+            ->orderBy('ordering')
+            ->limit(50)
+            ->get();
+
+        if ($pendingMedia->isEmpty()) {
+            return;
+        }
+
+        $whatsAppLib = new WhatsAppLib();
+
+        foreach ($pendingMedia as $message) {
+            // Meta deletes media after 14 days, so older rows can never be fetched
+            if (Carbon::parse($message->ordering)->lt(Carbon::now()->subDays(14))) {
+                $message->media_sync_status = Status::MEDIA_SYNC_UNAVAILABLE;
+                $message->save();
+                continue;
+            }
+
+            $account = $message->whatsappAccount;
+
+            if (!$account || !$account->access_token) {
+                continue;
+            }
+
+            try {
+                $mediaUrl  = $whatsAppLib->getMediaUrl($message->media_id, $account->access_token);
+                $mediaPath = $whatsAppLib->storedMediaToLocal($mediaUrl['url'], $message->media_id, $account->access_token, $message->user_id);
+
+                $message->media_url         = $mediaUrl['url'];
+                $message->media_path        = $mediaPath;
+                $message->media_sync_status = Status::MEDIA_SYNC_SYNCED;
+                $message->save();
+            } catch (Exception $e) {
+                $message->media_sync_status = Status::MEDIA_SYNC_UNAVAILABLE;
+                $message->save();
+            }
+        }
     }
 }

@@ -192,14 +192,22 @@ class PaymentController extends Controller
 
     public function manualDepositConfirm()
     {
-        $track = session()->get('Track');
-        $data = Deposit::with('gateway')->where('status', Status::PAYMENT_INITIATE)->where('trx', $track)->first();
-        abort_if(!$data, 404);
-        if ($data->method_code > 999) {
+        $deposit = Deposit::with('gateway')->where('user_id', auth()->id())
+            ->where('status', Status::PAYMENT_INITIATE)
+            ->latest()
+            ->first();
+
+        if (!$deposit) {
+            $notify[] = ['error', 'No pending deposit found'];
+            return back()->withNotify($notify);
+        }
+
+        if ($deposit->method_code > 999) {
             $pageTitle = 'Confirm Deposit';
-            $method = $data->gatewayCurrency();
+            $method = $deposit->gatewayCurrency();
             $gateway = $method->method;
-            return view('Template::user.payment.manual', compact('data', 'pageTitle', 'method', 'gateway'));
+            $data = $deposit;
+            return view('Template::user.payment.manual', compact('deposit', 'data', 'pageTitle', 'method', 'gateway'));
         }
         abort(404);
     }
