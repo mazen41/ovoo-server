@@ -157,7 +157,7 @@ class User extends Authenticatable
     public function fullname(): Attribute
     {
         return new Attribute(
-            get: fn() => $this->firstname . ' ' . $this->lastname,
+            get: fn() => trim(($this->firstname ?? '') . ' ' . ($this->lastname ?? '')),
         );
     }
 
@@ -191,7 +191,7 @@ class User extends Authenticatable
     public function fullNameShortForm(): Attribute
     {
         return new Attribute(
-            get: fn() => strtoupper(substr($this->firstname, 0, 1)) . strtoupper(substr($this->lastname, 0, 1)),
+            get: fn() => strtoupper(substr((string) $this->firstname, 0, 1)) . strtoupper(substr((string) $this->lastname, 0, 1)),
         );
     }
 

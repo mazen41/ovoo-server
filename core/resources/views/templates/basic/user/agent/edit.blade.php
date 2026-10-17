@@ -38,7 +38,7 @@
                                     <div class="form-group">
                                         <label class="label-two">@lang('Last Name')</label>
                                         <input type="text" class="form--control form-two" name="lastname"
-                                            placeholder="@lang('Enter lastname')" required
+                                            placeholder="@lang('Enter lastname')"
                                             value="{{ old('lastname', $agent->lastname) }}">
                                     </div>
                                 </div>
@@ -77,7 +77,7 @@
                                                 <option value="{{ $agent->dial_code }}">{{ $agent->dial_code }}</option>
                                             </select>
                                             <input type="number" class="form--control form-two form-control" name="mobile"
-                                                value="{{ $agent->mobile }}" readonly required>
+                                                value="{{ $agent->mobile }}" readonly>
                                         </div>
                                     </div>
                                 </div>

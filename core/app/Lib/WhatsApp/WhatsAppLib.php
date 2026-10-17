@@ -441,7 +441,7 @@ class WhatsAppLib
             }
 
             if ($mediaId && $mediaUrl && ($request->hasFile('image') || $request->get('image') instanceof UploadedFile || $request->hasFile('audio') || $request->get('audio') instanceof UploadedFile || $request->hasFile('video') || $request->get('video') instanceof UploadedFile)) {
-                $mediaPath = $this->storedMediaToLocal($mediaUrl, $mediaId, $accessToken, $whatsappAccount->user_id);
+                $mediaPath = $this->storedMediaToLocal($mediaUrl, $mediaId, $accessToken, $whatsappAccount->user_id, $mimeType);
             }
             $response = Http::withHeaders([
                 'Authorization' => "Bearer {$accessToken}"
@@ -679,7 +679,7 @@ class WhatsAppLib
         return "https://graph.facebook.com/v22.0/";
     }
 
-    public function storedMediaToLocal($mediaUrl, $mediaId, $accessToken, $userId)
+    public function storedMediaToLocal($mediaUrl, $mediaId, $accessToken, $userId, $fallbackMimeType = null)
     {
         try {
             $response = Http::withHeaders([
@@ -693,7 +693,21 @@ class WhatsAppLib
             $fileContent = $response->body();
             $mimeType    = $response->header('Content-Type');
 
-            $fileExtension = explode('/', $mimeType)[1];
+            // Strip codec params (e.g. "audio/ogg; codecs=opus" → "ogg")
+            // Prefer the download's Content-Type; if it is missing or generic
+            // (application/octet-stream), fall back to the message's stored MIME type.
+            $fileExtension = $this->extensionFromMime($mimeType);
+            if (!$fileExtension && $fallbackMimeType) {
+                $fileExtension = $this->extensionFromMime($fallbackMimeType);
+            }
+            $fileExtension = $fileExtension ?: 'bin';
+            // Normalise common extensions
+            $fileExtension = match ($fileExtension) {
+                'mpeg'       => 'mp3',
+                'quicktime'  => 'mp4',
+                'x-m4a'     => 'm4a',
+                default      => $fileExtension,
+            };
             $fileName      = "{$mediaId}.{$fileExtension}";
 
             $parentFolder = getFilePath('conversation');
@@ -711,6 +725,21 @@ class WhatsAppLib
         } catch (Exception $ex) {
             throw new Exception($ex->getMessage());
         }
+    }
+
+    /**
+     * Returns the file extension for a MIME type such as "audio/ogg; codecs=opus" (-> "ogg"),
+     * or null when the type is missing, generic (application/octet-stream) or unparseable.
+     */
+    private function extensionFromMime($mime)
+    {
+        $base = strtolower(trim(explode(';', (string) $mime)[0]));
+
+        if ($base === '' || $base === 'application/octet-stream' || !str_contains($base, '/')) {
+            return null;
+        }
+
+        return explode('/', $base)[1] ?: null;
     }
 
     public function  submitTemplate($businessAccountId, $accessToken, $templateData = [])

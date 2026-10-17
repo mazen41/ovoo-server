@@ -45,16 +45,24 @@ trait AgentManager
         $mobileCodes  = implode(',', array_column($countryData, 'dial_code'));
         $countries    = implode(',', array_column($countryData, 'country'));
 
+        // Required: firstname, username, email. Everything else on the agent form is optional.
+        // Empty form fields arrive as "" and ConvertEmptyStringsToNull turns them into null.
+        // The username rule used to be listed twice (PHP keeps only the last key), so both parts
+        // are merged here: required, string, unique, min 6.
         $request->validate([
             'firstname'    => 'required',
-            'lastname'     => 'required',
+            'username'     => 'required|string|unique:users|min:6',
             'email'        => 'required|string|email|unique:users',
-            'username'     => 'required|string|unique:users',
-            'country_code' => 'required|in:' . $countryCodes,
-            'country'      => 'required|in:' . $countries,
-            'mobile_code'  => 'required|in:' . $mobileCodes,
-            'username'     => 'required|unique:users|min:6',
-            'mobile'       => ['required', 'regex:/^([0-9]*)$/', Rule::unique('users')->where('dial_code', $request->mobile_code)],
+            'lastname'     => 'nullable|string',
+            'country_code' => 'nullable|in:' . $countryCodes,
+            'country'      => 'nullable|in:' . $countries,
+            // A dial code is needed only when a mobile number is given.
+            'mobile_code'  => 'required_with:mobile|in:' . $mobileCodes,
+            'mobile'       => ['nullable', 'regex:/^([0-9]*)$/', Rule::unique('users')->where('dial_code', $request->mobile_code)],
+            'city'         => 'nullable|string',
+            'state'        => 'nullable|string',
+            'zip'          => 'nullable|string',
+            'address'      => 'nullable|string',
         ]);
 
         $oneTimePassword = getNumber(10);
@@ -66,7 +74,9 @@ trait AgentManager
         $agent->email            = $request->email;
         $agent->country_code     = $request->country_code;
         $agent->country_name     = @$request->country;
-        $agent->dial_code        = $request->mobile_code;
+        // Store the dial code only together with a mobile number. Otherwise mobileNumber would be
+        // just the dial code ("967"), which looks like a real number to SMS and other code.
+        $agent->dial_code        = $request->filled('mobile') ? $request->mobile_code : null;
         $agent->mobile           = $request->mobile;
         $agent->city             = $request->city;
         $agent->state            = $request->state;
@@ -118,7 +128,11 @@ trait AgentManager
     {
         $request->validate([
             'firstname' => 'required',
-            'lastname'  => 'required',
+            'lastname'  => 'nullable|string',
+            'city'      => 'nullable|string',
+            'state'     => 'nullable|string',
+            'zip'       => 'nullable|string',
+            'address'   => 'nullable|string',
         ]);
         $user  = getParentUser();
         $agent = User::agent()
@@ -127,11 +141,14 @@ trait AgentManager
             ->findOrFailWithApi("agent", $id);
 
         $agent->firstname = $request->firstname;
-        $agent->lastname  = $request->lastname;
-        $agent->city      = $request->city;
-        $agent->state     = $request->state;
-        $agent->zip       = $request->zip;
-        $agent->address   = $request->address;
+
+        // Optional fields change only when the request contains them, so a request that omits a
+        // field never wipes the stored value. A field sent empty ("" -> null) clears it on purpose.
+        foreach (['lastname', 'city', 'state', 'zip', 'address'] as $field) {
+            if ($request->has($field)) {
+                $agent->{$field} = $request->input($field);
+            }
+        }
         $agent->save();
 
         $message = "Agent updated successfully";

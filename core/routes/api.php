@@ -15,11 +15,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::namespace('Api')->name('api.')->group(function () {
 
-    // Public media by-path (no auth — media_path contains UUIDs)
-    Route::name('inbox.')->prefix('inbox')->controller('InboxController')->group(function () {
-        Route::get('media/by-path/{path}', 'serveMediaByPath')->where('path', '.*');
-    });
-
     // Public support attachment (no auth — filenames contain UUIDs)
     Route::prefix('attachment')->controller('TicketController')->group(function () {
         Route::get('support/{filename}', 'serveSupportAttachment')->name('attachment.support')->where('filename', '.*');
@@ -138,7 +133,7 @@ Route::namespace('Api')->name('api.')->group(function () {
                     Route::get('conversation/details/{conversationId}', 'contactDetails');
                     Route::post('conversation/status/{conversationId}', 'changeConversationStatus');
                     Route::get('media/download/{mediaId}', 'downloadMedia');
-                    Route::get('media/view/{mediaId}', 'viewMedia');
+                    Route::get('media/stream/{mediaId}', 'streamMedia');
                     Route::post('note/store', 'storeNote');
                     Route::post('note/delete/{id}', 'deleteNote');
 

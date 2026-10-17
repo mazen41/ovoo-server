@@ -37,7 +37,7 @@
                                     <div class="form-group">
                                         <label class="label-two">@lang('Last Name')</label>
                                         <input type="text" class="form--control form-two" name="lastname"
-                                            placeholder="@lang('Enter lastname')" required value="{{ old('lastname') }}">
+                                            placeholder="@lang('Enter lastname')" value="{{ old('lastname') }}">
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
@@ -59,10 +59,10 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="form-label">@lang('Country')</label>
-                                        <select name="country" class="form-control form--control select2" required>
+                                        <select name="country" class="form-control form--control select2">
                                             @foreach ($countries as $key => $country)
                                                 <option data-mobile_code="{{ $country->dial_code }}"
-                                                    value="{{ $country->country }}" data-code="{{ $key }}">
+                                                    value="{{ $country->country }}" data-code="{{ $key }}" @selected(old('mobile_code', '967') == $country->dial_code)>
                                                     <img src="{{ getImage('assets/images/flags/' . $key . '.png') }}"
                                                         alt="img">
                                                     {{ __($country->country) }}
@@ -81,7 +81,7 @@
                                             <input type="hidden" name="mobile_code">
                                             <input type="hidden" name="country_code">
                                             <input type="number" name="mobile" value="{{ old('mobile') }}"
-                                                class="form-control form--control form-two checkUser" required>
+                                                class="form-control form--control form-two checkUser">
                                         </div>
                                         <span class="mobile-exists-error d-none"></span>
                                     </div>
@@ -161,6 +161,11 @@
             });
 
             function checkUser(value, name) {
+                if (name == 'mobile' && !value) {
+                    // Mobile is optional: an empty value has nothing to check. Clear any old error.
+                    domModifyForExists({ data: false }, name);
+                    return;
+                }
                 var url = '{{ route('user.checkUser') }}';
                 var token = '{{ csrf_token() }}';
 

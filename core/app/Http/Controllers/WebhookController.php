@@ -264,20 +264,21 @@ class WebhookController extends Controller
                 $conversation->last_message_at = Carbon::now();
                 $conversation->save();
 
-                // If it's a media message, fetch and store the media
+                // If it's a media message, fetch and store the media (all types)
                 if ($mediaId) {
                     $accessToken = $whatsappAccount->access_token;
                     try {
-                        $mediaUrl = $whatsappLib->getMediaUrl($mediaId, $accessToken);
+                        $mediaUrlData = $whatsappLib->getMediaUrl($mediaId, $accessToken);
 
-                        if ($mediaUrl && $mediaType == 'image') {
-                            $mediaPath = $whatsappLib->storedMediaToLocal($mediaUrl['url'], $mediaId, $accessToken, $user->id);
-                            $message->media_url = $mediaUrl;
+                        if ($mediaUrlData && isset($mediaUrlData['url'])) {
+                            $mediaPath = $whatsappLib->storedMediaToLocal($mediaUrlData['url'], $mediaId, $accessToken, $user->id, $mediaMimeType);
+                            $message->media_url  = $mediaUrlData['url'];
                             $message->media_path = $mediaPath;
-
                             $message->save();
                         }
                     } catch (Exception $ex) {
+                        // Log but don't crash — message is already saved without media_path
+                        \Log::warning("Media download failed for {$mediaId}: " . $ex->getMessage());
                     }
                 }
 

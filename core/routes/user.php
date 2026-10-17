@@ -149,6 +149,7 @@ Route::middleware('auth')->name('user.')->group(function () {
                         Route::post('translate', 'translateAiMessage')->name('translate')->middleware('agent.permission:send message');
                     });
                     Route::get('media/download/{mediaId}', 'downloadMedia')->name('media.download');
+                    Route::get('media/stream/{mediaId}', 'streamMedia')->name('media.stream');
                 });
             });
 

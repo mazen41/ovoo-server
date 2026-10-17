@@ -165,14 +165,14 @@
                  <p class="message-text">{!! nl2br($messageText) !!}</p>
              @endif
              @if (@$message->media_id)
-                 @if (@$message->message_type == Status::IMAGE_TYPE_MESSAGE)
+                 @if (@$message->message_type == Status::IMAGE_TYPE_MESSAGE && $message->media_path)
                      <a href="{{ asset(getFilePath('conversation') . '/' . $message->media_path) }}">
                          <img class="message-image"
                              src="{{ getImage(getFilePath('conversation') . '/' . @$message->media_path) }}"
                              alt="image">
                      </a>
                  @endif
-                 @if (@$message->message_type == Status::VIDEO_TYPE_MESSAGE)
+                 @if (@$message->message_type == Status::VIDEO_TYPE_MESSAGE && $message->media_path)
                      <div class="text-dark">
                          <video
                              controls
@@ -188,7 +188,7 @@
                          </a>
                      </div>
                  @endif
-                 @if (@$message->message_type == Status::DOCUMENT_TYPE_MESSAGE)
+                 @if (@$message->message_type == Status::DOCUMENT_TYPE_MESSAGE && $message->media_path)
                      <div class="text-dark d-flex justify-content-between flex-column">
                          <a href="{{ asset(getFilePath('conversation') . '/' . $message->media_path) }}"
                              class="text--primary download-document">
@@ -198,15 +198,30 @@
                          {{ @$message->media_filename ?? 'Document' }}
                      </div>
                  @endif
+                 @if (!$message->media_path && in_array(@$message->message_type, [Status::IMAGE_TYPE_MESSAGE, Status::VIDEO_TYPE_MESSAGE, Status::DOCUMENT_TYPE_MESSAGE]))
+                     <p class="message-text"><i class="las la-exclamation-circle"></i> @lang('Media unavailable')</p>
+                 @endif
                  @if (@$message->message_type == Status::AUDIO_TYPE_MESSAGE)
-                     <div class="text-dark d-flex justify-content-between flex-column">
-                         <a href="{{ asset(getFilePath('conversation') . '/' . $message->media_path) }}"
-                             class="text--primary download-document">
-                             <img class="message-image audio-image"
-                                 src="{{ asset('assets/images/audio_preview.png') }}" alt="image">
-                         </a>
-                         {{ @$message->media_filename ?? 'Audio' }}
-                     </div>
+                     @php
+                         $audioSrc = $message->media_path
+                             ? asset(getFilePath('conversation') . '/' . $message->media_path)
+                             : ($message->media_id ? route('user.inbox.media.stream', $message->media_id) : null);
+                     @endphp
+                     @if ($audioSrc)
+                         <div class="text-dark">
+                             <audio controls preload="metadata"
+                                 style="max-width:260px;width:100%;border-radius:8px;display:block;">
+                                 <source src="{{ $audioSrc }}">
+                                 @lang('Your browser does not support the audio tag.')
+                             </audio>
+                             <a href="{{ $audioSrc }}" download
+                                 class="text--primary d-block mt-1 fs-12">
+                                 <i class="las la-download"></i> @lang('Download')
+                             </a>
+                         </div>
+                     @else
+                         <p class="message-text"><i class="las la-microphone"></i> @lang('Audio message')</p>
+                     @endif
                  @endif
              @endif
          @endif

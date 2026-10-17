@@ -23,11 +23,10 @@ class ProfileController extends Controller
     {
         $request->validate([
             'firstname'     => 'required|string',
-            'lastname'      => 'required|string',
+            'lastname'      => 'nullable|string',
             'profile_image' => ['nullable', 'image','max:2048', new FileTypeValidate(['jpg', 'jpeg', 'png'])]
         ], [
             'firstname.required' => 'The first name field is required',
-            'lastname.required'  => 'The last name field is required'
         ]);
 
         $user = auth()->user();

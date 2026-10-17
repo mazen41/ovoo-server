@@ -778,6 +778,19 @@ trait InboxManager
             abort(404);
         }
 
+        // Serve the stored local copy first. response()->file() supports HTTP range requests,
+        // which <audio>/<video> need (especially on iOS Safari).
+        if ($message->media_path) {
+            $localPath = getFilePath('conversation') . '/' . $message->media_path;
+            if (File::exists($localPath)) {
+                $mime = $message->mime_type ? trim(explode(';', $message->mime_type)[0]) : File::mimeType($localPath);
+                return response()->file($localPath, [
+                    'Content-Type'  => $mime,
+                    'Accept-Ranges' => 'bytes',
+                ]);
+            }
+        }
+
         $accessToken = $user->currentWhatsapp()->access_token;
 
         try {
@@ -801,6 +814,8 @@ trait InboxManager
                 ->header('Content-Type', $mimeType)
                 ->header('Content-Disposition', "inline; filename={$fileName}")
                 ->header('Accept-Ranges', 'bytes');
+        } catch (\Symfony\Component\HttpKernel\Exception\HttpException $ex) {
+            throw $ex; // keep the intended status code (e.g. 502) from abort()
         } catch (Exception $ex) {
             abort(500);
         }
