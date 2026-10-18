@@ -279,6 +279,10 @@ trait InboxManager
 
     public function changeConversationAIReplyStatus(Request $request, $conversationId)
     {
+        $request->validate([
+            'status' => ['required', 'integer', Rule::in([0, 1])],
+        ]);
+
         $user         = getParentUser();
         $conversation = Conversation::where('user_id', $user->id)->find($conversationId);
 
@@ -289,9 +293,14 @@ trait InboxManager
         $conversation->ai_reply = $request->status;
         $conversation->save();
 
-        $aiReplyHtml = view('Template::user.inbox.conversation_ai_reply_dropdown_list', compact('conversation'))->render();
+        if (isApiRequest()) {
+            $aiReplyHtml = null;
+        } else {
+            $aiReplyHtml = view('Template::user.inbox.conversation_ai_reply_dropdown_list', compact('conversation'))->render();
+        }
 
         return apiResponse("status_updated", "success", ["AI Reply Status updated successfully"], [
+            'ai_reply'      => (int) $conversation->ai_reply,
             'ai_reply_html' => $aiReplyHtml
         ]);
     }

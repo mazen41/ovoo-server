@@ -865,3 +865,15 @@ button .spinner-border {
     background-color: hsl(var(--danger)) !important;
     color: hsl(var(--white)) !important;
 }
+
+/* Inbox: the sidebar is a 100px icon rail on the right (RTL). Reserve only that
+   width instead of the default 320px so there is no empty gap. */
+.chatbox-index-inner .dashboard__right {
+  padding-right: 100px !important;
+}
+
+@media screen and (max-width: 991px) {
+  .chatbox-index-inner .dashboard__right {
+    padding-right: 0 !important;
+  }
+}

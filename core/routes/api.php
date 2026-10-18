@@ -132,6 +132,7 @@ Route::namespace('Api')->name('api.')->group(function () {
                     Route::get('conversation-message/{id}', 'conversationMessages');
                     Route::get('conversation/details/{conversationId}', 'contactDetails');
                     Route::post('conversation/status/{conversationId}', 'changeConversationStatus');
+                    Route::post('conversation/ai-reply/{conversationId}', 'changeConversationAIReplyStatus');
                     Route::get('media/download/{mediaId}', 'downloadMedia');
                     Route::get('media/stream/{mediaId}', 'streamMedia');
                     Route::post('note/store', 'storeNote');
